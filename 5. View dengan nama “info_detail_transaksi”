@@ -1,0 +1,27 @@
+MariaDB [uts]> CREATE VIEW info_detail_transaksi AS
+    -> SELECT pelanggan.nama_pelanggan, makanan.nama_makanan, kasir.id_kasir, kasir.nama_kasir
+    -> FROM transaksi
+    -> INNER JOIN pelanggan ON transaksi.id_pelanggan = pelanggan.id_pelanggan
+    -> INNER JOIN detail_transaksi_makanan ON transaksi.no_transaksi = detail_transaksi_makanan.no_transaksi
+    -> INNER JOIN makanan ON detail_transaksi_makanan.id_makanan = makanan.id_makanan
+    -> INNER JOIN kasir ON transaksi.id_kasir = kasir.id_kasir
+    -> WHERE transaksi.id_kasir = 'ksr1';
+Query OK, 0 rows affected (0.016 sec)
+
+MariaDB [uts]> SELECT * FROM info_detail_transaksi;
++----------------+----------------+----------+------------+
+| nama_pelanggan | nama_makanan   | id_kasir | nama_kasir |
++----------------+----------------+----------+------------+
+| budi           | pizza          | ksr1     | cici       |
+| trisno         | sosis bakar    | ksr1     | cici       |
+| bayu           | pempek dos     | ksr1     | cici       |
+| wati           | bakso sapi     | ksr1     | cici       |
+| sulis          | pempek premium | ksr1     | cici       |
+| harianto       | ayam recheese  | ksr1     | cici       |
+| cahyo          | ayam goreng    | ksr1     | cici       |
+| sulis          | ayam bakar     | ksr1     | cici       |
+| trisno         | ayam geprek    | ksr1     | cici       |
+| wulung         | ayam recheese  | ksr1     | cici       |
+| slamet         | ayam bakar     | ksr1     | cici       |
++----------------+----------------+----------+------------+
+11 rows in set (0.014 sec)
