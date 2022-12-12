@@ -1,0 +1,15 @@
+MariaDB [uts]> CREATE TABLE minuman_duplikat AS
+    -> SELECT nama_minuman, jenis, harga FROM minuman
+    -> WHERE nama_minuman IN ('green thai tea', 'ori thai tea', 'thai coffee');
+Query OK, 3 rows affected (0.051 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [uts]> SELECT * FROM minuman_duplikat;
++----------------+--------+-------+
+| nama_minuman   | jenis  | harga |
++----------------+--------+-------+
+| green thai tea | dingin | 10000 |
+| ori thai tea   | dingin | 10000 |
+| thai coffee    | dingin | 10000 |
++----------------+--------+-------+
+3 rows in set (0.001 sec)
