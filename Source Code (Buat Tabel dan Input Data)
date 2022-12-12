@@ -1,0 +1,336 @@
+MariaDB [(none)]> SHOW databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| latihan            |
+| money_record       |
+| mysql              |
+| performance_schema |
+| pertemuan_3        |
+| pertemuan_5        |
+| phpmyadmin         |
+| rumah_sakit        |
+| test               |
++--------------------+
+10 rows in set (0.001 sec)
+
+MariaDB [(none)]> CREATE DATABASE UTS;
+Query OK, 1 row affected (0.014 sec)
+
+MariaDB [(none)]> USE UTS;
+Database changed
+
+MariaDB [UTS]> CREATE TABLE kasir
+    -> (
+    -> id_kasir VARCHAR(10),
+    -> nama_kasir VARCHAR(100));
+Query OK, 0 rows affected (2.151 sec)
+
+INSERT INTO kasir VALUES
+    -> ('ksr1', 'cici'),
+    -> ('ksr2', 'santoso');
+
+MariaDB [uts]> SELECT * FROM kasir;
++----------+------------+
+| id_kasir | nama_kasir |
++----------+------------+
+| ksr1     | cici       |
+| ksr2     | santoso    |
++----------+------------+
+2 rows in set (0.012 sec)
+
+MariaDB [UTS]> CREATE TABLE makanan
+    -> (
+    -> id_makanan VARCHAR(10),
+    -> nama_makanan VARCHAR(100),
+    -> jenis VARCHAR(50),
+    -> harga INT(10));
+Query OK, 0 rows affected (0.047 sec)
+
+INSERT INTO makanan VALUES
+   -> ('f001', 'pizza', 'ringan', 45000),
+   -> ('f002', 'bakso sapi', 'sedang', 65000),
+   -> ('f003', 'bakso ayam', 'sedang', 55000),
+   -> ('f004', 'pempek dos', 'sedang', 25000),
+   -> ('f005', 'pempek premium', 'sedang', 75000),
+   -> ('f006', 'nasi pecel', 'berat', 15000),
+   -> ('f007', 'tahu bakso', 'ringan', 15000),
+   -> ('f008', 'lidah sapi', 'sedang', 45000),
+   -> ('f009', 'nasi goreng', 'berat', 15000),
+   -> ('f010', 'ayam goreng', 'berat', 17000),
+   -> ('f011', 'ayam bakar', 'berat', 18000),
+   -> ('f012', 'burger', 'ringan', 15000),
+   -> ('f013', 'ayam geprek', 'sedang', 10000),
+   -> ('f014', 'ayam recheese', 'sedang', 25000),
+   -> ('f015', 'sosis bakar', 'ringan', 6000);
+
+MariaDB [uts]> SELECT * FROM makanan;
++------------+----------------+--------+-------+
+| id_makanan | nama_makanan   | jenis  | harga |
++------------+----------------+--------+-------+
+| f001       | pizza          | ringan | 45000 |
+| f002       | bakso sapi     | sedang | 65000 |
+| f003       | bakso ayam     | sedang | 55000 |
+| f004       | pempek dos     | sedang | 25000 |
+| f005       | pempek premium | sedang | 75000 |
+| f006       | nasi pecel     | berat  | 15000 |
+| f007       | tahu bakso     | ringan | 15000 |
+| f008       | lidah sapi     | sedang | 45000 |
+| f009       | nasi goreng    | berat  | 15000 |
+| f010       | ayam goreng    | berat  | 17000 |
+| f011       | ayam bakar     | berat  | 18000 |
+| f012       | burger         | ringan | 15000 |
+| f013       | ayam geprek    | sedang | 10000 |
+| f014       | ayam recheese  | sedang | 25000 |
+| f015       | sosis bakar    | ringan |  6000 |
++------------+----------------+--------+-------+
+15 rows in set (0.001 sec)
+
+MariaDB [UTS]> CREATE TABLE minuman
+    -> (
+    -> id_minuman VARCHAR(10),
+    -> nama_minuman VARCHAR(100),
+    -> jenis VARCHAR(50),
+    -> harga INT(10));
+Query OK, 0 rows affected (0.041 sec)
+
+INSERT INTO minuman VALUES
+    -> ('d001', 'green thai tea', 'dingin', 10000),
+    -> ('d002', 'ori thai tea', 'dingin', 10000),
+    -> ('d003', 'thai coffee', 'dingin', 10000),
+    -> ('d004', 'pure green tea', 'dingin', 8000),
+    -> ('d005', 'pure black tea', 'dingin', 8000),
+    -> ('d006', 'pure black coffee', 'dingin', 8000),
+    -> ('d007', 'taro', 'dingin', 12000),
+    -> ('d008', 'thai cocoa', 'dingin', 12000),
+    -> ('d009', 'coffee latte', 'dingin', 12000),
+    -> ('d010', 'choco banana', 'dingin', 12000);
+
+MariaDB [uts]> SELECT * FROM minuman;
++------------+-------------------+--------+-------+
+| id_minuman | nama_minuman      | jenis  | harga |
++------------+-------------------+--------+-------+
+| d001       | green thai tea    | dingin | 10000 |
+| d002       | ori thai tea      | dingin | 10000 |
+| d003       | thai coffee       | dingin | 10000 |
+| d004       | pure green tea    | dingin |  8000 |
+| d005       | pure black tea    | dingin |  8000 |
+| d006       | pure black coffee | dingin |  8000 |
+| d007       | taro              | dingin | 12000 |
+| d008       | thai cocoa        | dingin | 12000 |
+| d009       | coffee latte      | dingin | 12000 |
+| d010       | choco banana      | dingin | 12000 |
++------------+-------------------+--------+-------+
+10 rows in set (0.001 sec)
+
+MariaDB [UTS]> CREATE TABLE pelanggan
+    -> (
+    -> id_pelanggan VARCHAR(10),
+    -> nama_pelanggan VARCHAR(100),
+    -> kota VARCHAR(50));
+Query OK, 0 rows affected (0.035 sec)
+
+INSERT INTO pelanggan VALUES
+    -> ('p001', 'budi', 'ponorogo'),
+    -> ('p002', 'trisno', 'jambon'),
+    -> ('p003', 'bayu', 'slahung'),
+    -> ('p004', 'wulung', 'ngabar'),
+    -> ('p005', 'ilham', 'balong'),
+    -> ('p006', 'cahyo', 'jetis'),
+    -> ('p007', 'wati', 'karanglokidul'),
+    -> ('p008', 'sulis', 'sampung'),
+    -> ('p009', 'harianto', 'ngumpul'),
+    -> ('p010', 'slamet', 'semanding');
+
+MariaDB [uts]> SELECT * FROM pelanggan;
++--------------+----------------+---------------+
+| id_pelanggan | nama_pelanggan | kota          |
++--------------+----------------+---------------+
+| p001         | budi           | ponorogo      |
+| p002         | trisno         | jambon        |
+| p003         | bayu           | slahung       |
+| p004         | wulung         | ngabar        |
+| p005         | ilham          | balong        |
+| p006         | cahyo          | jetis         |
+| p007         | wati           | karanglokidul |
+| p008         | sulis          | sampung       |
+| p009         | harianto       | ngumpul       |
+| p010         | slamet         | semanding     |
++--------------+----------------+---------------+
+10 rows in set (0.001 sec)
+
+MariaDB [UTS]> CREATE TABLE transaksi
+    -> (
+    -> no_transaksi VARCHAR(10),
+    -> tgl_transaksi DATE,
+    -> id_pelanggan VARCHAR(10),
+    -> id_kasir VARCHAR(10),
+    -> subtotal_makanan INT(10),
+    -> subtotal_minuman INT(10),
+    -> total_bayar INT(10));
+Query OK, 0 rows affected (0.037 sec)
+
+MariaDB [uts]> insert into transaksi
+    -> values
+    -> ('t001','2020-01-01','p001','ksr1',16000,30000,61000),
+    -> ('t002','2020-01-01','p002','ksr1',24000,60000,74000),
+    -> ('t003','2020-01-01','p003','ksr1',30000,20000,60000),
+    -> ('t004','2020-01-01','p004','ksr2',24000,56000,40000),
+    -> ('t005','2020-01-01','p005','ksr2',90000,24000,110000),
+    -> ('t006','2020-01-01','p007','ksr2',50000,40000,74000),
+    -> ('t007','2020-01-02','p007','ksr1',50000,24000,74000),
+    -> ('t008','2020-01-02','p008','ksr1',50000,60000,74000),
+    -> ('t009','2020-01-02','p009','ksr1',12000,36000,28000),
+    -> ('t010','2020-01-02','p010','ksr2',12000,48000,28000),
+    -> ('t011','2020-01-02','p001','ksr2',12000,16000,28000),
+    -> ('t012','2020-01-02','p002','ksr1',12000,16000,28000),
+    -> ('t013','2020-01-02','p003','ksr2',12000,16000,28000),
+    -> ('t014','2020-01-02','p004','ksr1',12000,16000,28000),
+    -> ('t015','2020-01-02','p005','ksr2',12000,16000,28000),
+    -> ('t016','2020-01-03','p006','ksr1',24000,45000,69000),
+    -> ('t017','2020-01-03','p007','ksr2',32000,45000,77000),
+    -> ('t018','2020-01-03','p008','ksr1',8000,45000,53000),
+    -> ('t019','2020-01-03','p009','ksr2',24000,16000,40000),
+    -> ('t020','2020-01-03','p010','ksr1',24000,16000,40000);
+Query OK, 20 rows affected (0.010 sec)
+Records: 20  Duplicates: 0  Warnings: 0
+
+MariaDB [uts]> SELECT * FROM transaksi;
++--------------+---------------+--------------+----------+------------------+------------------+-------------+
+| no_transaksi | tgl_transaksi | id_pelanggan | id_kasir | subtotal_makanan | subtotal_minuman | total_bayar |
++--------------+---------------+--------------+----------+------------------+------------------+-------------+
+| t001         | 2020-01-01    | p001         | ksr1     |            16000 |            30000 |       61000 |
+| t002         | 2020-01-01    | p002         | ksr1     |            24000 |            60000 |       74000 |
+| t003         | 2020-01-01    | p003         | ksr1     |            30000 |            20000 |       60000 |
+| t004         | 2020-01-01    | p004         | ksr2     |            24000 |            56000 |       40000 |
+| t005         | 2020-01-01    | p005         | ksr2     |            90000 |            24000 |      110000 |
+| t006         | 2020-01-01    | p007         | ksr2     |            50000 |            40000 |       74000 |
+| t007         | 2020-01-02    | p007         | ksr1     |            50000 |            24000 |       74000 |
+| t008         | 2020-01-02    | p008         | ksr1     |            50000 |            60000 |       74000 |
+| t009         | 2020-01-02    | p009         | ksr1     |            12000 |            36000 |       28000 |
+| t010         | 2020-01-02    | p010         | ksr2     |            12000 |            48000 |       28000 |
+| t011         | 2020-01-02    | p001         | ksr2     |            12000 |            16000 |       28000 |
+| t012         | 2020-01-02    | p002         | ksr1     |            12000 |            16000 |       28000 |
+| t013         | 2020-01-02    | p003         | ksr2     |            12000 |            16000 |       28000 |
+| t014         | 2020-01-02    | p004         | ksr1     |            12000 |            16000 |       28000 |
+| t015         | 2020-01-02    | p005         | ksr2     |            12000 |            16000 |       28000 |
+| t016         | 2020-01-03    | p006         | ksr1     |            24000 |            45000 |       69000 |
+| t017         | 2020-01-03    | p007         | ksr2     |            32000 |            45000 |       77000 |
+| t018         | 2020-01-03    | p008         | ksr1     |             8000 |            45000 |       53000 |
+| t019         | 2020-01-03    | p009         | ksr2     |            24000 |            16000 |       40000 |
+| t020         | 2020-01-03    | p010         | ksr1     |            24000 |            16000 |       40000 |
++--------------+---------------+--------------+----------+------------------+------------------+-------------+
+20 rows in set (0.001 sec)
+
+MariaDB [UTS]> CREATE TABLE detail_transaksi_makanan
+    -> (
+    -> no_transaksi VARCHAR(10),
+    -> id_makanan VARCHAR(10),
+    -> jumlah_makanan INT(10));
+Query OK, 0 rows affected (0.046 sec)
+
+MariaDB [uts]> insert into detail_transaksi_makanan
+    -> values
+    -> ('t001','f001',2),
+    -> ('t002','f015',4),
+    -> ('t003','f004',2),
+    -> ('t004','f007',3),
+    -> ('t005','f009',3),
+    -> ('t006','f003',5),
+    -> ('t007','f002',1),
+    -> ('t008','f005',2),
+    -> ('t009','f014',3),
+    -> ('t010','f006',3),
+    -> ('t011','f008',2),
+    -> ('t015','f009',2),
+    -> ('t016','f010',5),
+    -> ('t017','f012',5),
+    -> ('t018','f011',3),
+    -> ('t012','f013',3),
+    -> ('t013','f014',4),
+    -> ('t014','f014',5),
+    -> ('t019','f011',4),
+    -> ('t020','f011',3);
+Query OK, 20 rows affected (0.007 sec)
+Records: 20  Duplicates: 0  Warnings: 0
+
+MariaDB [uts]> SELECT * FROM detail_transaksi_makanan;
++--------------+------------+----------------+
+| no_transaksi | id_makanan | jumlah_makanan |
++--------------+------------+----------------+
+| t001         | f001       |              2 |
+| t002         | f015       |              4 |
+| t003         | f004       |              2 |
+| t004         | f007       |              3 |
+| t005         | f009       |              3 |
+| t006         | f003       |              5 |
+| t007         | f002       |              1 |
+| t008         | f005       |              2 |
+| t009         | f014       |              3 |
+| t010         | f006       |              3 |
+| t011         | f008       |              2 |
+| t015         | f009       |              2 |
+| t016         | f010       |              5 |
+| t017         | f012       |              5 |
+| t018         | f011       |              3 |
+| t012         | f013       |              3 |
+| t013         | f014       |              4 |
+| t014         | f014       |              5 |
+| t019         | f011       |              4 |
+| t020         | f011       |              3 |
++--------------+------------+----------------+
+20 rows in set (0.001 sec)
+
+MariaDB [UTS]> CREATE TABLE detail_transaksi_minuman
+    -> (
+    -> no_transaksi VARCHAR(10),
+    -> id_minuman VARCHAR(10),
+    -> jumlah_minuman INT(10));
+Query OK, 0 rows affected (0.041 sec)
+
+MariaDB [uts]> insert into detail_transaksi_minuman
+    -> values
+    -> ('t001','d001',3),
+    -> ('t002','d002',6),
+    -> ('t003','d003',2),
+    -> ('t004','d004',7),
+    -> ('t005','d005',3),
+    -> ('t006','d006',5),
+    -> ('t007','d007',2),
+    -> ('t008','d008',5),
+    -> ('t009','d009',3),
+    -> ('t010','d010',4);
+Query OK, 10 rows affected (0.002 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+MariaDB [uts]> SELECT * FROM detail_transaksi_minuman;
++--------------+------------+----------------+
+| no_transaksi | id_minuman | jumlah_minuman |
++--------------+------------+----------------+
+| t001         | d001       |              3 |
+| t002         | d002       |              6 |
+| t003         | d003       |              2 |
+| t004         | d004       |              7 |
+| t005         | d005       |              3 |
+| t006         | d006       |              5 |
+| t007         | d007       |              2 |
+| t008         | d008       |              5 |
+| t009         | d009       |              3 |
+| t010         | d010       |              4 |
++--------------+------------+----------------+
+10 rows in set (0.001 sec)
+
+MariaDB [uts]> SHOW TABLES;
++--------------------------+
+| Tables_in_uts            |
++--------------------------+
+| detail_transaksi_makanan |
+| detail_transaksi_minuman |
+| kasir                    |
+| makanan                  |
+| minuman                  |
+| pelanggan                |
+| transaksi                |
++--------------------------+
+7 rows in set (0.001 sec)
