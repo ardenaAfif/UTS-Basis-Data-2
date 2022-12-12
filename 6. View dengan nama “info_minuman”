@@ -1,0 +1,26 @@
+MariaDB [uts]> CREATE VIEW info_minuman AS
+    -> SELECT pelanggan.nama_pelanggan, transaksi.tgl_transaksi, minuman.nama_minuman, minuman.jenis, minuman.harga, kasir.nama_kasir
+    -> FROM transaksi
+    -> INNER JOIN pelanggan ON transaksi.id_pelanggan = pelanggan.id_pelanggan
+    -> INNER JOIN detail_transaksi_minuman ON transaksi.no_transaksi = detail_transaksi_minuman.no_transaksi
+    -> INNER JOIN minuman ON detail_transaksi_minuman.id_minuman = minuman.id_minuman
+    -> INNER JOIN kasir ON transaksi.id_kasir = kasir.id_kasir
+    -> WHERE transaksi.tgl_transaksi BETWEEN '2020-01-01' AND '2020-01-02';
+Query OK, 0 rows affected (0.007 sec)
+
+MariaDB [uts]> SELECT * FROM info_minuman;
++----------------+---------------+-------------------+--------+-------+------------+
+| nama_pelanggan | tgl_transaksi | nama_minuman      | jenis  | harga | nama_kasir |
++----------------+---------------+-------------------+--------+-------+------------+
+| budi           | 2020-01-01    | green thai tea    | dingin | 10000 | cici       |
+| trisno         | 2020-01-01    | ori thai tea      | dingin | 10000 | cici       |
+| bayu           | 2020-01-01    | thai coffee       | dingin | 10000 | cici       |
+| wulung         | 2020-01-01    | pure green tea    | dingin |  8000 | santoso    |
+| ilham          | 2020-01-01    | pure black tea    | dingin |  8000 | santoso    |
+| wati           | 2020-01-01    | pure black coffee | dingin |  8000 | santoso    |
+| wati           | 2020-01-02    | taro              | dingin | 12000 | cici       |
+| sulis          | 2020-01-02    | thai cocoa        | dingin | 12000 | cici       |
+| harianto       | 2020-01-02    | coffee latte      | dingin | 12000 | cici       |
+| slamet         | 2020-01-02    | choco banana      | dingin | 12000 | santoso    |
++----------------+---------------+-------------------+--------+-------+------------+
+10 rows in set (0.015 sec)
