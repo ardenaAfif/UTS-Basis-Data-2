@@ -1,0 +1,25 @@
+MariaDB [uts]> CREATE VIEW info_makanan AS
+    -> SELECT * FROM makanan;
+Query OK, 0 rows affected (0.019 sec)
+
+MariaDB [uts]> SELECT * FROM info_makanan;
++------------+----------------+--------+-------+
+| id_makanan | nama_makanan   | jenis  | harga |
++------------+----------------+--------+-------+
+| f001       | pizza          | ringan | 45000 |
+| f002       | bakso sapi     | sedang | 65000 |
+| f003       | bakso ayam     | sedang | 55000 |
+| f004       | pempek dos     | sedang | 25000 |
+| f005       | pempek premium | sedang | 75000 |
+| f006       | nasi pecel     | berat  | 15000 |
+| f007       | tahu bakso     | ringan | 15000 |
+| f008       | lidah sapi     | sedang | 45000 |
+| f009       | nasi goreng    | berat  | 15000 |
+| f010       | ayam goreng    | berat  | 17000 |
+| f011       | ayam bakar     | berat  | 18000 |
+| f012       | burger         | ringan | 15000 |
+| f013       | ayam geprek    | sedang | 10000 |
+| f014       | ayam recheese  | sedang | 25000 |
+| f015       | sosis bakar    | ringan |  6000 |
++------------+----------------+--------+-------+
+15 rows in set (0.013 sec)
