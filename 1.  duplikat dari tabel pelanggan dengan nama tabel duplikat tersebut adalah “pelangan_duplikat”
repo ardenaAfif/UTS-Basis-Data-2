@@ -1,0 +1,37 @@
+MariaDB [uts]> CREATE TABLE pelanggan_duplikat LIKE pelanggan;
+Query OK, 0 rows affected (0.045 sec)
+
+MariaDB [uts]> SHOW TABLES;
++--------------------------+
+| Tables_in_uts            |
++--------------------------+
+| detail_transaksi_makanan |
+| detail_transaksi_minuman |
+| kasir                    |
+| makanan                  |
+| minuman                  |
+| pelanggan                |
+| pelanggan_duplikat       |
+| transaksi                |
++--------------------------+
+8 rows in set (0.002 sec)
+
+MariaDB [uts]> DESC pelanggan;
++----------------+--------------+------+-----+---------+-------+
+| Field          | Type         | Null | Key | Default | Extra |
++----------------+--------------+------+-----+---------+-------+
+| id_pelanggan   | varchar(10)  | YES  |     | NULL    |       |
+| nama_pelanggan | varchar(100) | YES  |     | NULL    |       |
+| kota           | varchar(50)  | YES  |     | NULL    |       |
++----------------+--------------+------+-----+---------+-------+
+3 rows in set (0.018 sec)
+
+MariaDB [uts]> DESC pelanggan_duplikat;
++----------------+--------------+------+-----+---------+-------+
+| Field          | Type         | Null | Key | Default | Extra |
++----------------+--------------+------+-----+---------+-------+
+| id_pelanggan   | varchar(10)  | YES  |     | NULL    |       |
+| nama_pelanggan | varchar(100) | YES  |     | NULL    |       |
+| kota           | varchar(50)  | YES  |     | NULL    |       |
++----------------+--------------+------+-----+---------+-------+
+3 rows in set (0.026 sec)
